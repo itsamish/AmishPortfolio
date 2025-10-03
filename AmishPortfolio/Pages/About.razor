@@ -1,0 +1,145 @@
+﻿@page "/AboutPage"
+@layout CustomLayout
+
+<title>AMF - About Me</title>
+
+<div class="min-vh-100 offset-lg-1 slide-in-left">
+	<div class="row col-11">
+		<div class="btn-group mt-5" role="group" aria-label="Basic radio toggle button group">
+			<input type="radio" class="btn-check" name="btnradio" id="btnWhoAmI" autocomplete="off" checked @onchange="@(() => OnTabChanged("WhoAmI"))">
+			<label class="btn btn-outline-warning fw-bold text-white" for="btnWhoAmI">Who Am I</label>
+
+			<input type="radio" class="btn-check" name="btnradio" id="btnEducation" autocomplete="off" @onchange="@(() => OnTabChanged("Education"))">
+			<label class="btn btn-outline-warning fw-bold text-white" for="btnEducation">Education</label>
+
+			<input type="radio" class="btn-check" name="btnradio" id="btnExperience" autocomplete="off" @onchange="@(() => OnTabChanged("Experience"))">
+			<label class="btn btn-outline-warning fw-bold text-white" for="btnExperience">Experience</label>
+		</div>
+		@if (selectedItem == "WhoAmI")
+		{
+			<div class="about-container mt-5 swing-in-top-fwd">
+				<div class="row align-items-center">
+					<div class="col-4">
+						<img src="/Images/profile-pic.png" class="img-fluid" />
+					</div>
+					<div class="col-8">
+						<h3 class="fw-bold text-white" style="text-align: justify; line-height: 50px">
+							I'm Ann Michelle Flores, a 23-year-old from Lipa City and an aspiring full-stack developer with hands-on experience in .NET software and mobile application development. I bring strong leadership, effective communication, and project management skills to every team I work with. I'm passionate about collaboration, time management, and building solutions that create real impact.
+						</h3>
+					</div>
+				</div>
+			</div>
+		}
+		else if (selectedItem == "Education")
+		{
+			<div class="education-container mt-5 swing-in-top-fwd h-75">
+				<div class="row align-items-center">
+					<div class="col-12" style="text-align: justify; line-height: 50px">
+						<h3 class="fw-bold text-white">
+							<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+							Bachelor of Science in Computer Engineering
+						</h3>
+						<ul class="fw-bold text-white">
+							<li><h5>University of Batangas Lipa Campus</h5></li>
+							<li><h5>Academic Year 2019 to 2023</h5></li>
+							<li><h5>Graduated with Latin Honors - Cum Laude </h5></li>
+							<li><h5>President of Brahman Institute of Computer Engineering Students - A.Y. 2022-2023</h5></li>
+							<li><h5>Vice President of Brahman Institute of Computer Engineering Students - A.Y. 2022-2023</h5></li>
+						</ul>
+						<h3 class="fw-bold text-white mt-5">
+							<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+							Science, Technology, Engineering, and Mathematics
+						</h3>
+						<ul class="fw-bold text-white">
+						<li>
+							<h5>LCC Silvercrest Senior High School</h5>
+						</li>
+							<li><h5>Academic Year 2017 to 2019</h5></li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		}
+		else if (selectedItem == "Experience")
+		{
+			<div class="experience-container mt-5 swing-in-top-fwd h-75">
+				<div class="row align-items-center">
+					<div class="col-12" style="text-align: justify; line-height: 50px">
+						<h2 class="fw-bold text-white">
+							<i class="fa fa-briefcase" aria-hidden="true"></i>
+							Next Health Global Services Inc.
+						</h2>
+						<h3 class="fw-bold text-white">
+							Title : Software Developer
+						</h3>
+						<ul class="fw-bold text-white">
+							<li>
+								<h5>
+									Played a key role in creating a WYSIWYG software
+									application using <em>Blazor WebAssembly</em>, focusing primarily
+									on the front-end customization features of the web
+									application
+								</h5>
+							</li>
+							<li>
+								<h5>
+									Continued the development of a Key Performance Indicator
+									Software App for the company’s customer service
+									representatives by utilizing <em>Radzen</em> .
+								</h5>
+							</li>
+							<li>
+								<h5>
+									Participated in the development of a mobile application by
+									integrating a new feature using <em>Xamarin</em>.
+								</h5>
+							</li>
+							<li>
+								<h5>
+									Involved in the creation of a mobile application utilizing
+									<em>.NET MAUI Blazor Hybrid</em>, incorporating <em>REST APIs</em>.
+								</h5>
+							</li>
+						</ul>
+						<h2 class="fw-bold text-white mt-5">
+							<i class="fa fa-briefcase" aria-hidden="true"></i>
+							THE EVERYTHING STORE INC. / AGORA PH
+						</h2>
+						<h3 class="fw-bold text-white">
+							Title :   Development and Technology Division Associate
+						</h3>
+						<ul class="fw-bold text-white">
+							<li>
+								<h5>
+									Internship Program / Remote SetUp
+								</h5>
+							</li>
+						</ul>
+						
+					</div>
+				</div>
+			</div>
+		}
+
+	</div>
+</div>
+
+@code {
+
+	private string selectedItem;
+
+	protected override async Task OnInitializedAsync()
+	{
+		selectedItem = "WhoAmI";
+	}
+
+	private async Task OnTabChanged(string tab)
+	{
+		selectedItem = tab;
+	}
+
+
+
+	
+}
